@@ -43,6 +43,7 @@ const char* getName (Type wsiType)
 		"mir",
 		"android",
 		"win32",
+		"ggp",
 	};
 	return de::getSizedArrayElement<TYPE_LAST>(s_names, wsiType);
 }
@@ -57,6 +58,7 @@ const char* getExtensionName (Type wsiType)
 		"VK_KHR_mir_surface",
 		"VK_KHR_android_surface",
 		"VK_KHR_win32_surface",
+		"VK_GGP_stream_descriptor_surface",
 	};
 	return de::getSizedArrayElement<TYPE_LAST>(s_extNames, wsiType);
 }
@@ -115,6 +117,13 @@ const PlatformProperties& getPlatformProperties (Type wsiType)
 			noDisplayLimit,
 			noWindowLimit,
 		},
+		// VK_GGP_stream_descriptor_surface
+		{
+			0u,
+			PlatformProperties::SWAPCHAIN_EXTENT_SCALED_TO_WINDOW_SIZE,
+			noDisplayLimit,
+			noWindowLimit,
+		},
 	};
 
 	return de::getSizedArrayElement<TYPE_LAST>(s_properties, wsiType);
@@ -129,7 +138,7 @@ VkResult createSurface (const InstanceInterface&		vki,
 						VkSurfaceKHR*					pSurface)
 {
 	// Update this function if you add more WSI implementations
-	DE_STATIC_ASSERT(TYPE_LAST == 6);
+	DE_STATIC_ASSERT(TYPE_LAST == 7);
 
 	switch (wsiType)
 	{
@@ -225,6 +234,20 @@ VkResult createSurface (const InstanceInterface&		vki,
 			};
 
 			return vki.createWin32SurfaceKHR(instance, &createInfo, pAllocator, pSurface);
+		}
+
+		case TYPE_GGP:
+		{
+			const GgpWindowInterface&						ggpWindow	= dynamic_cast<const GgpWindowInterface&>(nativeWindow);
+			const VkStreamDescriptorSurfaceCreateInfoGGP	createInfo	=
+			{
+				VK_STRUCTURE_TYPE_STREAM_DESCRIPTOR_SURFACE_CREATE_INFO_GGP,
+				DE_NULL,
+				(VkStreamDescriptorSurfaceCreateFlagsGGP)0,
+				ggpWindow.getNative()
+			};
+
+			return vki.createStreamDescriptorSurfaceGGP(instance, &createInfo, pAllocator, pSurface);
 		}
 
 		default:

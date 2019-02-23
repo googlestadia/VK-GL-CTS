@@ -173,6 +173,17 @@ struct TypeTraits<TYPE_WIN32>
 typedef DisplayInterface<TYPE_WIN32>	Win32DisplayInterface;
 typedef WindowInterface<TYPE_WIN32>		Win32WindowInterface;
 
+// VK_GGP_stream_descriptor_surface
+
+template<>
+struct TypeTraits<TYPE_GGP>
+{
+	typedef pt::GgpStreamDescriptor		NativeWindowType;
+};
+
+typedef DisplayInterface<TYPE_GGP>	GgpDisplayInterface;
+typedef WindowInterface<TYPE_GGP>		GgpWindowInterface;
+
 } // wsi
 } // vk
 

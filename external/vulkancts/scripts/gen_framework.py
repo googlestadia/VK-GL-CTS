@@ -93,7 +93,10 @@ PLATFORM_TYPES		= [
 	(["AHardwareBuffer", "*"],				["AndroidHardwareBufferPtr"],	"void*"),
 
 	# VK_EXT_acquire_xlib_display
-	(["RROutput"],							["RROutput"],					"void*")
+	(["RROutput"],							["RROutput"],					"void*"),
+
+	# VK_GGP_stream_descriptor_surface
+	(["GgpStreamDescriptor"],							["GgpStreamDescriptor"],					"deUint32")
 ]
 
 PLATFORM_TYPE_NAMESPACE	= "pt"
@@ -116,7 +119,7 @@ TYPE_SUBSTITUTIONS		= [
 	("LPCWSTR",		"char*"),
 ]
 
-EXTENSION_POSTFIXES				= ["KHR", "EXT", "NV", "NVX", "KHX", "NN", "MVK"]
+EXTENSION_POSTFIXES				= ["KHR", "EXT", "NV", "NVX", "KHX", "NN", "MVK", "GGP"]
 EXTENSION_POSTFIXES_STANDARD	= ["KHR"]
 
 def prefixName (prefix, name):
@@ -539,6 +542,8 @@ def removeAliasedValues (enum):
 
 	newValues = []
 	for name, value in enum.values:
+		if value in valueByName:
+			continue
 		withoutPostfix = removeDefExtPostfix(name)
 		if withoutPostfix != None and withoutPostfix in valueByName and valueByName[withoutPostfix] == value:
 			continue

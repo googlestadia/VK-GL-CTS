@@ -128,6 +128,7 @@ enum Type
 	TYPE_MIR,
 	TYPE_ANDROID,
 	TYPE_WIN32,
+	TYPE_GGP,
 
 	TYPE_LAST
 };
