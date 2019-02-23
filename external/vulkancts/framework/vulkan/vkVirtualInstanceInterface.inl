@@ -49,6 +49,7 @@ virtual VkBool32			getPhysicalDeviceMirPresentationSupportKHR			(VkPhysicalDevic
 virtual VkResult			createAndroidSurfaceKHR								(VkInstance instance, const VkAndroidSurfaceCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface) const = 0;
 virtual VkResult			createWin32SurfaceKHR								(VkInstance instance, const VkWin32SurfaceCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface) const = 0;
 virtual VkBool32			getPhysicalDeviceWin32PresentationSupportKHR		(VkPhysicalDevice physicalDevice, deUint32 queueFamilyIndex) const = 0;
+virtual VkResult			createStreamDescriptorSurfaceGGP					(VkInstance instance, const VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface) const = 0;
 virtual VkResult			getPhysicalDeviceSurfaceCapabilities2KHR			(VkPhysicalDevice physicalDevice, const VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, VkSurfaceCapabilities2KHR* pSurfaceCapabilities) const = 0;
 virtual VkResult			getPhysicalDeviceSurfaceFormats2KHR					(VkPhysicalDevice physicalDevice, const VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, deUint32* pSurfaceFormatCount, VkSurfaceFormat2KHR* pSurfaceFormats) const = 0;
 virtual VkResult			getPhysicalDeviceDisplayProperties2KHR				(VkPhysicalDevice physicalDevice, deUint32* pPropertyCount, VkDisplayProperties2KHR* pProperties) const = 0;

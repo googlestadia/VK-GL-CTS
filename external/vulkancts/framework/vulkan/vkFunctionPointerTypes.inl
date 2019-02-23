@@ -219,6 +219,7 @@ typedef VKAPI_ATTR VkResult				(VKAPI_CALL* GetMemoryFdPropertiesKHRFunc)							
 typedef VKAPI_ATTR void					(VKAPI_CALL* GetPhysicalDeviceExternalSemaphorePropertiesKHRFunc)		(VkPhysicalDevice physicalDevice, const VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, VkExternalSemaphoreProperties* pExternalSemaphoreProperties);
 typedef VKAPI_ATTR VkResult				(VKAPI_CALL* ImportSemaphoreWin32HandleKHRFunc)							(VkDevice device, const VkImportSemaphoreWin32HandleInfoKHR* pImportSemaphoreWin32HandleInfo);
 typedef VKAPI_ATTR VkResult				(VKAPI_CALL* GetSemaphoreWin32HandleKHRFunc)							(VkDevice device, const VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, pt::Win32Handle* pHandle);
+typedef VKAPI_ATTR VkResult				(VKAPI_CALL* CreateStreamDescriptorSurfaceGGPFunc)						(VkInstance instance, const VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface);
 typedef VKAPI_ATTR VkResult				(VKAPI_CALL* ImportSemaphoreFdKHRFunc)									(VkDevice device, const VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo);
 typedef VKAPI_ATTR VkResult				(VKAPI_CALL* GetSemaphoreFdKHRFunc)										(VkDevice device, const VkSemaphoreGetFdInfoKHR* pGetFdInfo, int* pFd);
 typedef VKAPI_ATTR void					(VKAPI_CALL* CmdPushDescriptorSetKHRFunc)								(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, deUint32 set, deUint32 descriptorWriteCount, const VkWriteDescriptorSet* pDescriptorWrites);

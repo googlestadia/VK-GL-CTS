@@ -711,6 +711,11 @@ template<> VkStructureType getStructureType<VkSemaphoreGetWin32HandleInfoKHR> (v
 	return VK_STRUCTURE_TYPE_SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR;
 }
 
+template<> VkStructureType getStructureType<VkStreamDescriptorSurfaceCreateInfoGGP> (void)
+{
+	return VK_STRUCTURE_TYPE_STREAM_DESCRIPTOR_SURFACE_CREATE_INFO_GGP;
+}
+
 template<> VkStructureType getStructureType<VkImportSemaphoreFdInfoKHR> (void)
 {
 	return VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR;

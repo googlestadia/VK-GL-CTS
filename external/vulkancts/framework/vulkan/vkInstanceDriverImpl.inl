@@ -292,6 +292,11 @@ VkBool32 InstanceDriver::getPhysicalDeviceWin32PresentationSupportKHR (VkPhysica
 	return m_vk.getPhysicalDeviceWin32PresentationSupportKHR(physicalDevice, queueFamilyIndex);
 }
 
+VkResult InstanceDriver::createStreamDescriptorSurfaceGGP (VkInstance instance, const VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface) const
+{
+	return m_vk.createStreamDescriptorSurfaceGGP(instance, pCreateInfo, pAllocator, pSurface);
+}
+
 VkResult InstanceDriver::getPhysicalDeviceSurfaceCapabilities2KHR (VkPhysicalDevice physicalDevice, const VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, VkSurfaceCapabilities2KHR* pSurfaceCapabilities) const
 {
 	return m_vk.getPhysicalDeviceSurfaceCapabilities2KHR(physicalDevice, pSurfaceInfo, pSurfaceCapabilities);

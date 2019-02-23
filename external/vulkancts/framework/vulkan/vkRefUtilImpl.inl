@@ -373,6 +373,13 @@ Move<VkSurfaceKHR> createWin32SurfaceKHR (const InstanceInterface& vk, VkInstanc
 	return Move<VkSurfaceKHR>(check<VkSurfaceKHR>(object), Deleter<VkSurfaceKHR>(vk, instance, pAllocator));
 }
 
+Move<VkSurfaceKHR> createStreamDescriptorSurfaceGGP (const InstanceInterface& vk, VkInstance instance, const VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, const VkAllocationCallbacks* pAllocator)
+{
+	VkSurfaceKHR object = 0;
+	VK_CHECK(vk.createStreamDescriptorSurfaceGGP(instance, pCreateInfo, pAllocator, &object));
+	return Move<VkSurfaceKHR>(check<VkSurfaceKHR>(object), Deleter<VkSurfaceKHR>(vk, instance, pAllocator));
+}
+
 Move<VkRenderPass> createRenderPass2KHR (const DeviceInterface& vk, VkDevice device, const VkRenderPassCreateInfo2KHR* pCreateInfo, const VkAllocationCallbacks* pAllocator)
 {
 	VkRenderPass object = 0;

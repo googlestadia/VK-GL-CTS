@@ -268,6 +268,7 @@ tcu::Format::Bitfield<32>	getWaylandSurfaceCreateFlagsKHRStr					(VkWaylandSurfa
 tcu::Format::Bitfield<32>	getMirSurfaceCreateFlagsKHRStr						(VkMirSurfaceCreateFlagsKHR value);
 tcu::Format::Bitfield<32>	getAndroidSurfaceCreateFlagsKHRStr					(VkAndroidSurfaceCreateFlagsKHR value);
 tcu::Format::Bitfield<32>	getWin32SurfaceCreateFlagsKHRStr					(VkWin32SurfaceCreateFlagsKHR value);
+tcu::Format::Bitfield<32>	getStreamDescriptorSurfaceCreateFlagsGGPStr			(VkStreamDescriptorSurfaceCreateFlagsGGP value);
 tcu::Format::Bitfield<32>	getViSurfaceCreateFlagsNNStr						(VkViSurfaceCreateFlagsNN value);
 tcu::Format::Bitfield<32>	getPipelineViewportSwizzleStateCreateFlagsNVStr		(VkPipelineViewportSwizzleStateCreateFlagsNV value);
 tcu::Format::Bitfield<32>	getPipelineDiscardRectangleStateCreateFlagsEXTStr	(VkPipelineDiscardRectangleStateCreateFlagsEXT value);
@@ -489,6 +490,7 @@ std::ostream&	operator<<	(std::ostream& s, const VkImportSemaphoreWin32HandleInf
 std::ostream&	operator<<	(std::ostream& s, const VkExportSemaphoreWin32HandleInfoKHR& value);
 std::ostream&	operator<<	(std::ostream& s, const VkD3D12FenceSubmitInfoKHR& value);
 std::ostream&	operator<<	(std::ostream& s, const VkSemaphoreGetWin32HandleInfoKHR& value);
+std::ostream&	operator<<	(std::ostream& s, const VkStreamDescriptorSurfaceCreateInfoGGP& value);
 std::ostream&	operator<<	(std::ostream& s, const VkImportSemaphoreFdInfoKHR& value);
 std::ostream&	operator<<	(std::ostream& s, const VkSemaphoreGetFdInfoKHR& value);
 std::ostream&	operator<<	(std::ostream& s, const VkPhysicalDevicePushDescriptorPropertiesKHR& value);

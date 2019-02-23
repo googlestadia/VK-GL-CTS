@@ -175,6 +175,12 @@ VKAPI_ATTR VkResult VKAPI_CALL createWin32SurfaceKHR (VkInstance instance, const
 	VK_NULL_RETURN((*pSurface = allocateNonDispHandle<SurfaceKHR, VkSurfaceKHR>(instance, pCreateInfo, pAllocator)));
 }
 
+VKAPI_ATTR VkResult VKAPI_CALL createStreamDescriptorSurfaceGGP (VkInstance instance, const VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
+{
+	DE_UNREF(pAllocator);
+	VK_NULL_RETURN((*pSurface = allocateNonDispHandle<SurfaceKHR, VkSurfaceKHR>(instance, pCreateInfo, pAllocator)));
+}
+
 VKAPI_ATTR VkResult VKAPI_CALL createRenderPass2KHR (VkDevice device, const VkRenderPassCreateInfo2KHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkRenderPass* pRenderPass)
 {
 	DE_UNREF(pAllocator);
@@ -1929,6 +1935,7 @@ static const tcu::StaticFunctionLibrary::Entry s_instanceFunctions[] =
 	VK_NULL_FUNC_ENTRY(vkEnumeratePhysicalDeviceGroupsKHR,						enumeratePhysicalDeviceGroups),
 	VK_NULL_FUNC_ENTRY(vkGetPhysicalDeviceExternalBufferPropertiesKHR,			getPhysicalDeviceExternalBufferProperties),
 	VK_NULL_FUNC_ENTRY(vkGetPhysicalDeviceExternalSemaphorePropertiesKHR,		getPhysicalDeviceExternalSemaphoreProperties),
+	VK_NULL_FUNC_ENTRY(vkCreateStreamDescriptorSurfaceGGP,						createStreamDescriptorSurfaceGGP),
 	VK_NULL_FUNC_ENTRY(vkGetPhysicalDeviceExternalFencePropertiesKHR,			getPhysicalDeviceExternalFenceProperties),
 	VK_NULL_FUNC_ENTRY(vkGetPhysicalDeviceSurfaceCapabilities2KHR,				getPhysicalDeviceSurfaceCapabilities2KHR),
 	VK_NULL_FUNC_ENTRY(vkGetPhysicalDeviceSurfaceFormats2KHR,					getPhysicalDeviceSurfaceFormats2KHR),

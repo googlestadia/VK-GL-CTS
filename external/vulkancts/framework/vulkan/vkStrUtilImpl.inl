@@ -56,6 +56,7 @@ std::ostream& operator<< (std::ostream& s, Win32Handle					v) { return s << tcu:
 std::ostream& operator<< (std::ostream& s, Win32SecurityAttributesPtr	v) { return s << tcu::toHex(v.internal); }
 std::ostream& operator<< (std::ostream& s, AndroidHardwareBufferPtr		v) { return s << tcu::toHex(v.internal); }
 std::ostream& operator<< (std::ostream& s, RROutput						v) { return s << tcu::toHex(v.internal); }
+std::ostream& operator<< (std::ostream& s, GgpStreamDescriptor			v) { return s << tcu::toHex(v.internal); }
 }
 
 const char* getPipelineCacheHeaderVersionName (VkPipelineCacheHeaderVersion value)
@@ -244,6 +245,7 @@ const char* getStructureTypeName (VkStructureType value)
 		case VK_STRUCTURE_TYPE_MIR_SURFACE_CREATE_INFO_KHR:										return "VK_STRUCTURE_TYPE_MIR_SURFACE_CREATE_INFO_KHR";
 		case VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR:									return "VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR";
 		case VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR:									return "VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR";
+		case VK_STRUCTURE_TYPE_STREAM_DESCRIPTOR_SURFACE_CREATE_INFO_GGP:						return "VK_STRUCTURE_TYPE_STREAM_DESCRIPTOR_SURFACE_CREATE_INFO_GGP";
 		case VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT:							return "VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT";
 		case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD:			return "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD";
 		case VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT:								return "VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT";
@@ -2253,6 +2255,11 @@ tcu::Format::Bitfield<32> getAndroidSurfaceCreateFlagsKHRStr (VkAndroidSurfaceCr
 }
 
 tcu::Format::Bitfield<32> getWin32SurfaceCreateFlagsKHRStr (VkWin32SurfaceCreateFlagsKHR value)
+{
+	return tcu::Format::Bitfield<32>(value, DE_NULL, DE_NULL);
+}
+
+tcu::Format::Bitfield<32> getStreamDescriptorSurfaceCreateFlagsGGPStr (VkStreamDescriptorSurfaceCreateFlagsGGP value)
 {
 	return tcu::Format::Bitfield<32>(value, DE_NULL, DE_NULL);
 }
@@ -5009,6 +5016,17 @@ std::ostream& operator<< (std::ostream& s, const VkSemaphoreGetWin32HandleInfoKH
 	s << "\tpNext = " << value.pNext << '\n';
 	s << "\tsemaphore = " << value.semaphore << '\n';
 	s << "\thandleType = " << value.handleType << '\n';
+	s << '}';
+	return s;
+}
+
+std::ostream& operator<< (std::ostream& s, const VkStreamDescriptorSurfaceCreateInfoGGP& value)
+{
+	s << "VkStreamDescriptorSurfaceCreateInfoGGP = {\n";
+	s << "\tsType = " << value.sType << '\n';
+	s << "\tpNext = " << value.pNext << '\n';
+	s << "\tflags = " << getStreamDescriptorSurfaceCreateFlagsGGPStr(value.flags) << '\n';
+	s << "\tstreamDescriptor = " << value.streamDescriptor << '\n';
 	s << '}';
 	return s;
 }

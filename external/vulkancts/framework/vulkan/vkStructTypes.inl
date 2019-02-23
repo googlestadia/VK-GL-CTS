@@ -2081,6 +2081,14 @@ struct VkSemaphoreGetWin32HandleInfoKHR
 	VkExternalSemaphoreHandleTypeFlagBits	handleType;
 };
 
+struct VkStreamDescriptorSurfaceCreateInfoGGP
+{
+	VkStructureType							sType;
+	const void*								pNext;
+	VkStreamDescriptorSurfaceCreateFlagsGGP	flags;
+	pt::GgpStreamDescriptor					streamDescriptor;
+};
+
 struct VkImportSemaphoreFdInfoKHR
 {
 	VkStructureType							sType;

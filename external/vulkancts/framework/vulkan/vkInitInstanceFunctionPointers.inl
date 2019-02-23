@@ -80,6 +80,7 @@ m_vk.getPhysicalDeviceQueueFamilyProperties2KHR				= (GetPhysicalDeviceQueueFami
 m_vk.getPhysicalDeviceSparseImageFormatProperties2KHR		= (GetPhysicalDeviceSparseImageFormatProperties2KHRFunc)	GET_PROC_ADDR("vkGetPhysicalDeviceSparseImageFormatProperties2KHR");
 m_vk.getPhysicalDeviceExternalBufferPropertiesKHR			= (GetPhysicalDeviceExternalBufferPropertiesKHRFunc)		GET_PROC_ADDR("vkGetPhysicalDeviceExternalBufferPropertiesKHR");
 m_vk.getPhysicalDeviceExternalSemaphorePropertiesKHR		= (GetPhysicalDeviceExternalSemaphorePropertiesKHRFunc)		GET_PROC_ADDR("vkGetPhysicalDeviceExternalSemaphorePropertiesKHR");
+m_vk.createStreamDescriptorSurfaceGGP						= (CreateStreamDescriptorSurfaceGGPFunc)					GET_PROC_ADDR("vkCreateStreamDescriptorSurfaceGGP");
 m_vk.getPhysicalDeviceExternalFencePropertiesKHR			= (GetPhysicalDeviceExternalFencePropertiesKHRFunc)			GET_PROC_ADDR("vkGetPhysicalDeviceExternalFencePropertiesKHR");
 m_vk.getPhysicalDeviceSurfaceCapabilities2KHR				= (GetPhysicalDeviceSurfaceCapabilities2KHRFunc)			GET_PROC_ADDR("vkGetPhysicalDeviceSurfaceCapabilities2KHR");
 m_vk.getPhysicalDeviceSurfaceFormats2KHR					= (GetPhysicalDeviceSurfaceFormats2KHRFunc)					GET_PROC_ADDR("vkGetPhysicalDeviceSurfaceFormats2KHR");
